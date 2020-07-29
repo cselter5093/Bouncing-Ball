@@ -24,14 +24,7 @@ public class Ball {
     Ball(Scene scene, double size, int speed, double xC, double yC) {
         // set object variables 
         this.size = size;
-        
-        
-       
-                
         this.xCoord = xC;
-        
-       
-        
         this.yCoord = yC;
         this.sceneHeight = scene.getHeight();
         this.sceneWidth = scene.getWidth();

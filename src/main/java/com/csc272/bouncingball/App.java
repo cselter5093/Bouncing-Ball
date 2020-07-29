@@ -34,13 +34,9 @@ public class App extends Application {
                 Ball ball = new Ball(scene, BALL_SIZE, BALL_SPEED, mouseEvent.getSceneX(), mouseEvent.getSceneY());
                 group.getChildren().add(ball.getBall());
 
-                // Start thread
-                
+                // Start thread             
                 Thread ballThread = new BallThread(ball);
-                
-                               
                 ballThread.start();
-
             }
 
         });

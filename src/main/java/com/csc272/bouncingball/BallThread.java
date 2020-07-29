@@ -1,14 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+// Christopher Selter
+// CS272
+// Homework 4 - Due August 1, 2020
 package com.csc272.bouncingball;
 
-/**
- *
- * @author christopher
- */
 class BallThread extends Thread {
 
     private Ball myBall;
@@ -21,7 +15,6 @@ class BallThread extends Thread {
     @Override
     public void run() {
         try {
-            
             
             for (int i = 0; i < MAXTIME; i++) {
                 myBall.moveMyBall();
