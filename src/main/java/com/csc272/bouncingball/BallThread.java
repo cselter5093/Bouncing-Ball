@@ -1,7 +1,11 @@
 // Christopher Selter
 // CS272
 // Homework 4 - Due August 1, 2020
+
 package com.csc272.bouncingball;
+
+import static java.lang.Thread.sleep;
+import javafx.application.Platform;
 
 class BallThread extends Thread {
 
@@ -12,19 +16,34 @@ class BallThread extends Thread {
         myBall = inBall;
     }
 
-    @Override
-    public void run() {
-        try {
-            
-            for (int i = 0; i < MAXTIME; i++) {
-                myBall.moveMyBall();
-                System.out.println("iteration: " + i);
-                sleep(10);
+    public void startMoving() {
+
+        Runnable moveTheBall = new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < MAXTIME; i++) {
+                    try {
+                        Platform.runLater(new Runnable() {
+                            @Override
+                            public void run() {
+                                myBall.moveMyBall();
+                            }
+                        });
+
+                        System.out.println("iteration: " + i);
+                        sleep(10);
+
+                    } catch (InterruptedException e) {
+                        System.out.println("Thread Exception: " + e);
+                        e.printStackTrace();
+                    }
+                }
             }
-        } catch (InterruptedException e) {
-            System.out.println("Thread Exception: " + e);
-            e.printStackTrace();
-        }
+        };
+
+        Thread thisBallThread = new Thread(moveTheBall);
+        thisBallThread.setDaemon(true);
+        thisBallThread.start();
     }
 
 }

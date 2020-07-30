@@ -1,17 +1,17 @@
 // Christopher Selter
 // CS272
 // Homework 4 - Due August 1, 2020
+
 package com.csc272.bouncingball;
 
 import java.util.Random;
-import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
-public class Ball {
+public class Ball extends Circle {
 
-    private double size;   // radius size of ball
+    private double size;   // diameter size of ball
     private double xCoord; // x coordinate of ball
     private double yCoord; // y coordinate of ball
     private Circle myBall; // circle object
@@ -48,20 +48,21 @@ public class Ball {
 
     public void moveMyBall() {
 
-        if (xCoord - size < 0 || xCoord + size >= sceneWidth)
+        if (xCoord - size < 0 || xCoord + size >= sceneWidth) {
             ballDirectionX = -ballDirectionX;
-        
-        if (yCoord - size < 0 || yCoord + size >= sceneHeight)
+        }
+
+        if (yCoord - size < 0 || yCoord + size >= sceneHeight) {
             ballDirectionY = -ballDirectionY;
-        
+        }
+
         xCoord += ballDirectionX;
         yCoord += ballDirectionY;
-       
+
         myBall.setCenterX(xCoord);
         myBall.setCenterY(yCoord);
 
         System.out.println("xCoord: " + xCoord + " yCoord: " + yCoord);
-
     }
 
     public Circle getBall() {

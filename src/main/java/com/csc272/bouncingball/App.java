@@ -1,6 +1,7 @@
 // Christopher Selter
 // CS272
 // Homework 4 - Due August 1, 2020
+
 package com.csc272.bouncingball;
 
 import javafx.application.Application;
@@ -35,8 +36,8 @@ public class App extends Application {
                 group.getChildren().add(ball.getBall());
 
                 // Start thread             
-                Thread ballThread = new BallThread(ball);
-                ballThread.start();
+                BallThread ballThread = new BallThread(ball);
+                ballThread.startMoving();
             }
 
         });
