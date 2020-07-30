@@ -46,6 +46,7 @@ public class Ball extends Circle {
         }
     }
 
+    // Adjust coordinates on each iteration 
     public void moveMyBall() {
 
         if (xCoord - size < 0 || xCoord + size >= sceneWidth) {
@@ -65,6 +66,7 @@ public class Ball extends Circle {
         System.out.println("xCoord: " + xCoord + " yCoord: " + yCoord);
     }
 
+    // Getter to return object to scene
     public Circle getBall() {
         return this.myBall;
     }

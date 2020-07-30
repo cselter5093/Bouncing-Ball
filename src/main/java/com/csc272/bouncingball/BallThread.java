@@ -41,8 +41,13 @@ class BallThread extends Thread {
             }
         };
 
+        // create the thread
         Thread thisBallThread = new Thread(moveTheBall);
+        
+        // kills thread if applicaiton is closed 
         thisBallThread.setDaemon(true);
+        
+        // start the thread
         thisBallThread.start();
     }
 
